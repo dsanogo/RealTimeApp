@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+Route::get('/', 'ChatsController@index');
+Route::get('/messages', 'ChatsController@fetchMessages');
+Route::post('/messages', 'ChatsController@sendMessage');
+Route::get('/password1', function(){
+    return bcrypt('David1fci@@');
+});
+Route::get('/password2', function(){
+    return bcrypt('123456');
 });
